@@ -27,23 +27,25 @@ public class CafeMenuTest {
        assertSame(selectedItem,"Cola");
        System.out.println("selectedItem : "+ selectedItem);
    }
-   
-   @Test
-   public void processMenuItemTest() {
-       CafeMenu menu = new CafeMenu();
-       Scanner scanner = new Scanner("A");
-       HashMap map = menu.processMenu(scanner);
-       Assert.assertNotNull(map);
-       System.out.println("selectedItem : "+ map.keySet());
-   }    
-   
+     
    @Test
    public void standardBillTest() {
        CafeMenu menu = new CafeMenu();
-       Scanner scanner = new Scanner("D");
+       Scanner scanner = new Scanner("A");
        HashMap map = menu.processMenu(scanner);
        double total = menu.standardBill(map);
        Assert.assertEquals(0.50, 0.50, 0.50);
        System.out.println("total : "+ total);
+   }
+   
+   @Test
+   public void serviceChargeTest() {
+       CafeMenu menu = new CafeMenu();
+       Scanner scanner = new Scanner("C");
+       HashMap map = menu.processMenu(scanner);
+       double total = 2.0;
+       double grandtotal = menu.serviceCharge(total, map);
+       Assert.assertEquals(2.2, 2.2, 2.2);
+       System.out.println("total : "+ grandtotal);
    }
 }

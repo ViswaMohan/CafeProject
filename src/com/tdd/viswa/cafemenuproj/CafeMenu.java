@@ -72,8 +72,7 @@ public class CafeMenu {
        return itemSelected;
     }
     
-    public HashMap processMenu(){
-        Scanner scanner = new Scanner(System.in);
+    public HashMap processMenu(Scanner scanner){
         this.setSelectedMenu();
         HashMap<String,Double> map1 =new HashMap<>();
         try{
@@ -116,8 +115,22 @@ public class CafeMenu {
         return totalVal;
     }
     
-    HashMap processMenu(Scanner scanner) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public double serviceCharge(double total, HashMap<String,Double> val ){
+        double totalBillWithoutScharge = total;
+        double grandTotal= total;
+      //no service charge for drinks  
+      if (val.containsValue(cheeseSandwich)){
+         double coldFoodItemsCount = (totalBillWithoutScharge*0.1);
+         grandTotal = (coldFoodItemsCount + totalBillWithoutScharge);
+      }
+      if (val.containsValue(steakSandwich)){
+          double hotFoodItemsCount = (totalBillWithoutScharge*0.2);
+          if (hotFoodItemsCount <= 20.0)
+           grandTotal = (hotFoodItemsCount + totalBillWithoutScharge);
+          else 
+           grandTotal = (20.0 + totalBillWithoutScharge); 
+      } 
+        return grandTotal;
     }
     
 }
