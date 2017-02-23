@@ -105,6 +105,17 @@ public class CafeMenu {
         return map1;
     }
 
+    public double standardBill(HashMap<String,Double> val){
+        // calculation
+        double totalVal = 0.0;
+        for (String key : val.keySet()){
+            totalVal+= val.get(key);
+        }
+        System.out.println("Standard Bill : £"+ totalVal+"P");
+        
+        return totalVal;
+    }
+    
     HashMap processMenu(Scanner scanner) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

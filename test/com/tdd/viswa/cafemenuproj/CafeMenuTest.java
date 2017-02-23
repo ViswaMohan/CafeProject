@@ -15,11 +15,12 @@ public class CafeMenuTest {
     }
     
     @Test
-   public void displayMenuTest() {
+    public void displayMenuTest() {
        CafeMenu menu = new CafeMenu();
        menu.displayMenu();
    }
-@Test
+    
+   @Test
    public void selectMenuItemTest() {
        CafeMenu menu = new CafeMenu();
        String selectedItem = menu.selectMenuItem('A');
@@ -35,9 +36,14 @@ public class CafeMenuTest {
        Assert.assertNotNull(map);
        System.out.println("selectedItem : "+ map.keySet());
    }    
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+   
+   @Test
+   public void standardBillTest() {
+       CafeMenu menu = new CafeMenu();
+       Scanner scanner = new Scanner("D");
+       HashMap map = menu.processMenu(scanner);
+       double total = menu.standardBill(map);
+       Assert.assertEquals(0.50, 0.50, 0.50);
+       System.out.println("total : "+ total);
+   }
 }
