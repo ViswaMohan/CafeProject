@@ -10,6 +10,12 @@ public class CafeMenuTest {
     
     public CafeMenuTest() {
     }
+    
+    @Test
+   public void displayMenuTest() {
+       CafeMenu menu = new CafeMenu();
+       menu.displayMenu();
+   }
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
     //
