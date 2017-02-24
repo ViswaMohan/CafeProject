@@ -133,4 +133,10 @@ public class CafeMenu {
         return grandTotal;
     }
     
+    public static void main(String[] args) {
+     CafeMenu menu = new CafeMenu();
+     Scanner scanner = new Scanner(System.in);
+     HashMap map = menu.processMenu(scanner);   
+     System.out.println("Map contains: "+ map.toString());   
+    }
 }
